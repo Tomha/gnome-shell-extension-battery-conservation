@@ -24,6 +24,7 @@ export default class IdeaPadExtension extends Extension {
   }
 
   override enable() {
+    console.log('enabling...');
     const sysfs_path = '/sys/bus/platform/drivers/ideapad_acpi';
 
     if (sys_conservation === null) {
