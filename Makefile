@@ -7,4 +7,4 @@ build:
 	gnome-extensions pack -f --extra-source=LICENSE . --out-dir=./
 
 install:
-	gnome-extensions install --force ./ideapad@laurento.frittella.shell-extension.zip
+	gnome-extensions install --force ./ideapad@tomhah.shell-extension.zip
