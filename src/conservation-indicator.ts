@@ -1,14 +1,18 @@
 import { GObject } from '@girs/gobject-2.0';
-import { main, quickSettings } from '@girs/gnome-shell/ui';
+import { panel } from '@girs/gnome-shell/ui/main';
+import {
+  QuickToggle,
+  SystemIndicator,
+} from '@girs/gnome-shell/ui/quickSettings';
 import { Gio } from '@girs/gio-2.0';
 import { Shell } from '@girs/shell-14';
 import { ConservationToggle } from './conservation-toggle';
 import { St } from '@girs/st-14';
 
-export class _ConservationIndicator extends quickSettings.SystemIndicator {
+export class _ConservationIndicator extends SystemIndicator {
   private _indicator: St.Icon | null = null;
   private readonly _sysConservation: string | null = null;
-  private _toggle: quickSettings.QuickToggle | null = null;
+  private _toggle: QuickToggle | null = null;
   private _monitor: Gio.FileMonitor | null = null;
 
   constructor(sysConservation: string) {
@@ -54,7 +58,7 @@ export class _ConservationIndicator extends quickSettings.SystemIndicator {
     this.quickSettingsItems.push(this._toggle);
     // Add the indicator to the panel and the toggle to the menu.
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
-    main.panel.statusArea.quickSettings.addExternalIndicator(this);
+    panel.statusArea.quickSettings.addExternalIndicator(this);
   }
 
   _syncStatus() {
