@@ -1,3 +1,2 @@
-*.zip
-*.mo
 .idea
+node_modules
